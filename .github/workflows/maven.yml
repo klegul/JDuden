@@ -17,3 +17,7 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Upload file
+      uses: actions/upload-artifact@v2.2.0
+      with:
+        path: JDuden.jar
