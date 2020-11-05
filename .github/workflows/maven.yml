@@ -20,4 +20,4 @@ jobs:
     - name: Upload file
       uses: actions/upload-artifact@v2.2.0
       with:
-        path: JDuden.jar
+        path: /home/runner/work/JDuden/JDuden/target/JDuden.jar
