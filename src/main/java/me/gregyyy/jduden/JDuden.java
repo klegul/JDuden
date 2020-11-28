@@ -25,8 +25,11 @@ public class JDuden {
 
         String dWord = getElementByClassOrNull(doc, "lemma__main");
         String altSpellings = getElementByClassOrNull(doc, "lemma__alt-spelling");
-        List<String> articles = Arrays.asList(Objects.requireNonNull(getElementByClassOrNull(doc, "lemma__determiner"))
-                .split("(, | oder )"));
+        List<String> articles = new ArrayList<>();
+        if (doc.getElementsByClass("lemma__determiner").size() > 0){
+            articles = Arrays.asList(Objects.requireNonNull(getElementByClassOrNull(doc, "lemma__determiner"))
+                    .split("(, | oder )"));
+        }
         String wordType = getElementByCSSOrNull(doc,
                 ".tabloid__main-column > article:nth-child(3) > dl:nth-child(3) > dd:nth-child(2)");
 

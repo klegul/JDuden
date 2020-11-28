@@ -60,4 +60,17 @@ public class TestJDuden {
                 word.getOrigin());
     }
 
+    @Test
+    public void testWordShoppen() throws IOException {
+        Word word = JDuden.getWord("shoppen");
+        Assert.assertNull(word.getAltSpellings());
+        Assert.assertEquals("shoppen", word.getWord());
+        Assert.assertEquals("schwaches Verb", word.getWordType());
+        Assert.assertEquals("shop|pen", word.getWordSeparation());
+        Assert.assertTrue(word.getMeanings().contains("einen Einkaufsbummel machen, einkaufen") &&
+                word.getMeanings().size() == 1);
+        Assert.assertEquals(0, word.getArticles().size());
+        Assert.assertEquals("zu englisch to shop, zu: shop, Shop", word.getOrigin());
+    }
+
 }
