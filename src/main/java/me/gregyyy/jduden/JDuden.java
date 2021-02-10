@@ -20,6 +20,8 @@ public class JDuden {
      * @throws IOException  will be thrown in exception occurs while querying duden.de
      */
     public static Word getWord(String word) throws IOException {
+        word = getURLWord(word);
+
         Document doc = Jsoup.connect("https://www.duden.de/rechtschreibung/" + word)
                 .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 88.69; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6").get();
 
@@ -87,6 +89,12 @@ public class JDuden {
         }
 
         return new Word(dWord, altSpellings, articles, wordType, wordSeparation, meanings, origin.get(), synonyms.get());
+    }
+
+    private static String getURLWord(String word){
+        return word.replaceAll("ä", "ae").replaceAll("Ä", "Ae").replaceAll("ö", "oe")
+                .replaceAll("Ö", "Oe").replaceAll("ü", "ue").replaceAll("Ü", "Ue")
+                .replaceAll("ß", "sz").replaceAll("ẞ", "Sz").replaceAll("-", "_");
     }
 
     private static String getElementByClassOrNull(Document doc, String className){

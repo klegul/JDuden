@@ -83,4 +83,22 @@ public class TestJDuden {
         Assert.assertEquals(0, wordWithoutSynonyms.getSynonyms().size());
     }
 
+    @Test
+    public void testURLWord() throws IOException {
+        Word wordWithAE = JDuden.getWord("Strichmännchen");
+        Assert.assertNotNull(wordWithAE);
+
+        Word wordWithOE = JDuden.getWord("Öl");
+        Assert.assertNotNull(wordWithOE);
+
+        Word wordWithUE = JDuden.getWord("Überbrückung");
+        Assert.assertNotNull(wordWithUE);
+
+        Word wordWithSZ = JDuden.getWord("Straße");
+        Assert.assertNotNull(wordWithSZ);
+
+        Word wordWithMinus = JDuden.getWord("U-Bahn");
+        Assert.assertNotNull(wordWithMinus);
+    }
+
 }
