@@ -3,7 +3,15 @@ With this small library you can query [duden.de](https://duden.de) for words. It
 ## Installation
 Download the jar file from the [release page](https://github.com/Gregyyy/JDuden/releases).
 
-Maven is comming soon.
+### Maven
+
+````xml
+<dependency>
+    <groupId>me.gregyyy.jduden</groupId>
+    <artifactId>jduden</artifactId>
+    <version>VERSION</version>
+</dependency>
+````
 
 ## Usage
 This project can only be used as a libary.
