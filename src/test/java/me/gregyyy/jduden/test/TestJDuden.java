@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class TestJDuden {
 
@@ -71,6 +72,15 @@ public class TestJDuden {
                 word.getMeanings().size() == 1);
         Assert.assertEquals(0, word.getArticles().size());
         Assert.assertEquals("zu englisch to shop, zu: shop, Shop", word.getOrigin());
+    }
+
+    @Test
+    public void testSynonyms() throws IOException {
+        Word wordWithSynonyms = JDuden.getWord("schreiben");
+        Assert.assertEquals(4, wordWithSynonyms.getSynonyms().size());
+
+        Word wordWithoutSynonyms = JDuden.getWord("Strichmännchen");
+        Assert.assertEquals(0, wordWithoutSynonyms.getSynonyms().size());
     }
 
 }

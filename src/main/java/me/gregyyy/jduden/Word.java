@@ -15,9 +15,10 @@ public class Word {
     private final String wordSeparation;
     private final List<String> meanings;
     private final String origin;
+    private final List<String> synonyms;
 
     public Word(String word, String altSpellings, List<String> articles, String wordType, String wordSeparation,
-                List<String> meanings, String origin) {
+                List<String> meanings, String origin, List<String> synonyms) {
         this.word = word;
         this.altSpellings = altSpellings;
         this.articles = articles;
@@ -25,6 +26,7 @@ public class Word {
         this.wordSeparation = wordSeparation;
         this.meanings = meanings;
         this.origin = origin;
+        this.synonyms = synonyms;
     }
 
     /**
@@ -83,6 +85,14 @@ public class Word {
      */
     public String getOrigin() {
         return origin;
+    }
+
+    /**
+     * Get synonyms of this word
+     * @return {@link List} of synonyms of this word
+     */
+    public List<String> getSynonyms() {
+        return synonyms;
     }
 
     /**

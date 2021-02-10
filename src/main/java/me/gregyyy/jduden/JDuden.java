@@ -77,7 +77,16 @@ public class JDuden {
             doc.getElementById("herkunft").children().stream().filter(element -> element.nodeName().equals("p")).findFirst().ifPresent(element -> origin.set(element.text()));
         }
 
-        return new Word(dWord, altSpellings, articles, wordType, wordSeparation, meanings, origin.get());
+        AtomicReference<List<String>> synonyms = new AtomicReference<>();
+        if(doc.getElementById("synonyme") != null){
+            doc.getElementById("synonyme").children().stream().filter(element -> element.nodeName().equals("ul"))
+                    .findFirst().flatMap(ulElement -> ulElement.children().stream().findFirst()).ifPresent(liElement ->
+                    synonyms.set(Arrays.asList(liElement.text().split(", "))));
+        }else{
+            synonyms.set(new ArrayList<>());
+        }
+
+        return new Word(dWord, altSpellings, articles, wordType, wordSeparation, meanings, origin.get(), synonyms.get());
     }
 
     private static String getElementByClassOrNull(Document doc, String className){
