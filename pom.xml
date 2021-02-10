@@ -7,6 +7,7 @@
     <groupId>me.gregyyy</groupId>
     <artifactId>JDuden</artifactId>
     <version>0.2.0</version>
+    <packaging>jar</packaging>
     <build>
         <plugins>
             <plugin>
@@ -34,11 +35,29 @@
 
     <licenses>
         <license>
-            <name>MIT-License</name>
-            <url>https://mit-license.org/</url>
-            <distribution>repo</distribution>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
         </license>
     </licenses>
+
+    <name>JDuden</name>
+    <description>Get words from duden.de - the German dictionary</description>
+    <url>https://github.com/Gregyyy/JDuden</url>
+
+    <developers>
+        <developer>
+            <name>Gregyyy</name>
+            <email>gregyyy@pm.me</email>
+            <organization>gregyyy.me</organization>
+            <organizationUrl>https://github.com/Gregyyy</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/Gregyyy/JDuden.git</connection>
+        <developerConnection>scm:git:ssh://github.com/Gregyyy/JDuden.git</developerConnection>
+        <url>https://github.com/Gregyyy/JDuden/tree/main</url>
+    </scm>
 
     <dependencies>
         <dependency>
