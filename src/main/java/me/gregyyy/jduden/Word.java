@@ -109,7 +109,7 @@ public class Word {
                 ", wordSeparation='" + wordSeparation + '\'' +
                 ", meanings=" + Arrays.toString(meanings.toArray()) +
                 ", origin='" + origin + '\'' +
+                ", synonyms=" + Arrays.toString(synonyms.toArray()) +
                 '}';
     }
-
 }
